@@ -1,61 +1,61 @@
 const jailbreakPaths = [
- 	"/bin/bash",
-	"/Applications/Cydia.app",
-	"/Library/MobileSubstrate/MobileSubstrate.dylib",
-	"/usr/sbin/sshd",
-	"/etc/apt",
-	"/private/var/lib/apt/",
+    "/bin/bash",
+    "/Applications/Cydia.app",
+    "/Library/MobileSubstrate/MobileSubstrate.dylib",
+    "/usr/sbin/sshd",
+    "/etc/apt",
+    "/private/var/lib/apt/",
 ]
 
 Interceptor.attach(ObjC.classes.NSFileManager['- fileExistsAtPath:'].implementation, {
-	onEnter: function (args) {
-		this.is_flagged = false;
-		this.path = new ObjC.Object(args[2]).toString();
-		if (jailbreakPaths.indexOf(this.path) >= 0) {
+    onEnter: function(args) {
+        this.is_flagged = false;
+        this.path = new ObjC.Object(args[2]).toString();
+        if (jailbreakPaths.indexOf(this.path) >= 0) {
             this.is_flagged = true;
             console.log("fileExistsAtPath: " + this.path);
         }
-	},
-	onLeave: function (retval) {
-		if (!this.is_flagged || retval.isNull()) {
+    },
+    onLeave: function(retval) {
+        if (!this.is_flagged || retval.isNull()) {
             return;
         }
         retval.replace(new NativePointer(0x00));
-	}
+    }
 });
 
 Interceptor.attach(Module.findExportByName(null, "fopen"), {
-  onEnter: function(args) {
-  	this.is_flagged = false;
-    this.path = Memory.readCString(ptr(args[0]));
-    if (jailbreakPaths.indexOf(this.path) >= 0) {
+    onEnter: function(args) {
         this.is_flagged = false;
-        console.log("fopen: " + this.path);
+        this.path = Memory.readCString(ptr(args[0]));
+        if (jailbreakPaths.indexOf(this.path) >= 0) {
+            this.is_flagged = false;
+            console.log("fopen: " + this.path);
+        }
+    },
+    onLeave: function(retval) {
+        if (!this.is_flagged || retval.isNull()) {
+            return;
+        }
+        retval.replace(new NativePointer(0x00));
     }
-  },
-  onLeave: function(retval) {
-  	if (!this.is_flagged || retval.isNull()) {
-    	return;
-    }
-    retval.replace(new NativePointer(0x00));
-  }
 });
 
 
 Interceptor.attach(ObjC.classes.UIApplication["- canOpenURL:"].implementation, {
     onEnter: function(args) {
-    	this.is_flagged = false;
+        this.is_flagged = false;
         var path = ObjC.Object(args[2]).toString();
         if (path.startsWith('cydia') || path.startsWith('Cydia')) {
-        	this.is_flagged = true;
-        	console.log("canOpenURL: " + path);
-    	}
+            this.is_flagged = true;
+            console.log("canOpenURL: " + path);
+        }
     },
     onLeave: function(retval) {
-    	if (!this.is_flagged || retval.isNull()) {
-    		return;
-    	}
-    	retval.replace(new NativePointer(0x00));
+        if (!this.is_flagged || retval.isNull()) {
+            return;
+        }
+        retval.replace(new NativePointer(0x00));
     }
 })
 
@@ -92,4 +92,3 @@ Interceptor.attach(ObjC.classes.UIApplication["- canOpenURL:"].implementation, {
 //     fclose(file)
 //     jailbroken = true
 // }
-
