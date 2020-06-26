@@ -29,7 +29,7 @@ Interceptor.attach(Module.findExportByName(null, "fopen"), {
         this.is_flagged = false;
         this.path = Memory.readCString(ptr(args[0]));
         if (jailbreakPaths.indexOf(this.path) >= 0) {
-            this.is_flagged = false;
+            this.is_flagged = true;
             console.log("fopen: " + this.path);
         }
     },
