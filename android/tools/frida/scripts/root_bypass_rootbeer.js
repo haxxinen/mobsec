@@ -10,9 +10,44 @@ Java.perform(function() {
     }
 
     try {
-        // from logcat
-        var RootBeer = Java.use("com.scottyab.rootbeer.d");
-        RootBeer.b.overload('java.lang.String').implementation = function() {
+        var RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+        RootBeer.checkForBinary.overload('java.lang.String').implementation = function() {
+            return false;
+        };
+    } catch (err) {
+        // do nothing
+    }
+
+    try {
+        var RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+        RootBeer.checkForDangerousProps.overload().implementation = function() {
+            return false;
+        };
+    } catch (err) {
+        // do nothing
+    }
+
+    try {
+        var RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+        RootBeer.detectRootCloakingApps.overload().implementation = function() {
+            return false;
+        };
+    } catch (err) {
+        // do nothing
+    }
+
+    try {
+        var RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+        RootBeer.checkSuExists.overload().implementation = function() {
+            return false;
+        };
+    } catch (err) {
+        // do nothing
+    }
+
+    try {
+        var RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+        RootBeer.detectTestKeys.overload().implementation = function() {
             return false;
         };
     } catch (err) {
@@ -23,13 +58,23 @@ Java.perform(function() {
         // native bypass
         var RootBeer = Java.use("com.scottyab.rootbeer.RootBeerNative");
         RootBeer.checkForRoot.overload('[Ljava.lang.Object;').implementation = function() {
-            return false;
+            return 0;
         };
     } catch (err) {
         // do nothing
     }
     // -----
     // alternative implementations for obfuscated methods
+
+    // checkForBinary
+    try {
+        var RootBeer = Java.use("com.scottyab.rootbeer.d");
+        RootBeer.b.overload('java.lang.String').implementation = function() {
+            return false;
+        };
+    } catch (err) {
+        // do nothing
+    }
 
     try {
         // isRootedWithBusyBoxCheck
