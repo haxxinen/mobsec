@@ -9,7 +9,7 @@ http://repo.hackyouriphone.org
 http://repo666.ultrasn0w.com
 http://cydia.zodttd.com/repo/cydia
 http://build.frida.re
-http://cydia.iphonecake.com
+https://cydia.iphonecake.com
 https://coolstar.org/publicrepo
 https://apt.bingner.com
 https://build.frida.re
