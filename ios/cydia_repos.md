@@ -27,7 +27,7 @@ http://www.pixelomer.com/repo (Saleo)
 
 #### Cydia Apps/Tweaks
 
-Cydia Utils:
+Cydia utils:
 
 - Frida for A12+ devices
 - SSL Kill Switch 2
@@ -47,8 +47,10 @@ Cydia Utils:
 - BigBoss Recommended Tools (big one lots of crap; not really effective)
 - Darwin CC Tools (`otool`)
 
-Useful Apps:
+Useful apps:
 
 - Scany
 - WiFi Map Pro
 - Fing
+
+Legacy tools: Snoop-It / iNalyzer / Introspy
