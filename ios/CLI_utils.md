@@ -1,5 +1,10 @@
 ## Bunch of CLI utils for iOS (requires JB)
 
+#### 0. iOS app folder structure
+
+Installed IPA: `/var/containers/Bundle/Application/*/MyApp.app/` (binaries are here as well)
+Runtime app files: `/var/mobile/Containers/Data/Application/*/Documents/*`
+Sahred app files: `/var/mobile/Containers/Shared/AppGroup/`
 
 #### 1. Extract binary from `.deb` packege
 ```
@@ -30,3 +35,52 @@ Modify `Info.plist`:
 ...
 </dict>
 ```
+
+#### 3. SSH over USB
+```
+$ brew install libimobiledevice
+$ iproxy 2222 22
+$ ssh root@localhost -p 2222
+```
+
+#### 4. GDB into process
+```
+iPhone:/tmp mobile$ pid=`ps aux | grep /var/containers/Bundle/Application/*/Messenger.app | head -n 1 | awk '{print $2}'`
+iPhone:/tmp mobile$ gdb -p $pid
+(gdb) break objc_msgSend
+(gdb) commands
+> x/a $r0
+> x/s $r1
+> c
+> end
+```
+
+#### 5. Otool - show imports/libraries
+```
+iPhone:/tmp mobile$ file /var/containers/Bundle/Application/*/Messenger.app/Messenger
+/var/containers/Bundle/Application/0F906849-EB6B-438B-8FAC-011B8F3B1BD4/Messenger.app/Messenger: Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
+iPhone:/tmp mobile$ otool -L /var/containers/Bundle/Application/0F906849-EB6B-438B-8FAC-011B8F3B1BD4/Messenger.app/Messenger | sort -u | head -n -2
+	/System/Library/Frameworks/AVFoundation.framework/AVFoundation (compatibility version 1.0.0, current version 2.0.0)
+	/System/Library/Frameworks/AdSupport.framework/AdSupport (compatibility version 1.0.0, current version 1.0.0)
+	/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation (compatibility version 150.0.0, current version 1676.104.0)
+	/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics (compatibility version 64.0.0, current version 1355.17.0)
+	/System/Library/Frameworks/CoreText.framework/CoreText (compatibility version 1.0.0, current version 1.0.0)
+	/System/Library/Frameworks/Foundation.framework/Foundation (compatibility version 300.0.0, current version 1676.104.0)
+	/System/Library/Frameworks/PushKit.framework/PushKit (compatibility version 1.0.0, current version 1.0.0)
+	/System/Library/Frameworks/QuartzCore.framework/QuartzCore (compatibility version 1.2.0, current version 1.11.0)
+	/System/Library/Frameworks/UIKit.framework/UIKit (compatibility version 1.0.0, current version 61000.0.0)
+	/System/Library/Frameworks/WatchConnectivity.framework/WatchConnectivity (compatibility version 1.0.0, current version 187.2.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1281.100.1)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 902.0.0)
+	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)
+	/usr/lib/libsqlite3.dylib (compatibility version 9.0.0, current version 308.5.0)
+	/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.11)
+```
+Note: `otool` (from Dawin Tools on Cydia)
+
+#### 6. Launch app from terminal
+```
+iPhone:/tmp mobile$ open com.apple.mobilesafari
+```
+Note: Open for iOS 11 in Cydia
+
