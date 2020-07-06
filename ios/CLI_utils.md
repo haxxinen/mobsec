@@ -11,3 +11,22 @@ iPhone:/tmp mobile$ dpkg-deb -x $deb $deb_dir
 iPhone:/tmp mobile$ find . -name $tool 2>/dev/null
 ./network-cmds/sbin/ifconfig
 ```
+
+#### 2. Prevent iOS app update
+
+Find `Info.plist` for specific app:
+```
+iPhone:/tmp mobile$ cat /var/containers/Bundle/Application/*/MyApp.app/Info.plist
+```
+
+Modify `Info.plist`:
+```
+<plist version="1.0">
+...
+<dict>
+...
+	<key>CFBundleShortVersionString</key>
+	<string>999.999.999</string>
+...
+</dict>
+```
