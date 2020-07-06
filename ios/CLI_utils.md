@@ -1,4 +1,4 @@
-## Bunch of CLI utils for iOS (requires JB)
+## CLI utils for iOS (requires JB)
 
 #### 0. iOS app folder structure
 
