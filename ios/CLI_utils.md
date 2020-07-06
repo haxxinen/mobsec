@@ -119,3 +119,8 @@ zip -r9 dbs.zip dbs && rm -r dbs
 
 #printf '%q\n' "${rows[@]}"
 ```
+
+#### 11. Find iOS developer codesign identity on macOS
+```
+# security find-identity -v -p codesigning
+```
