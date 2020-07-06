@@ -16,10 +16,38 @@ https://build.frida.re
 https://repo.chariz.com
 https://repo.dynastic.co
 https://repo.packix.com
-https://ryleyangus.com/repo
+https://ryleyangus.com/repo (Liberty Lite)
 https://akusio.github.io
-https://repo.ipodhacks142.com
-https://test.unlimapps.com
-https://repo.sparkes.zone
+https://repo.ipodhacks142.com (KernBypass Reboot Fix)
+https://test.unlimapps.com (SanTanDick)
+https://repo.sparkes.zone (MetroWank)
 https://yungspecht.github.io/
+http://www.pixelomer.com/repo (Saleo)
 ```
+
+#### Cydia Apps/Tweaks
+
+Cydia Utils:
+
+- SSL Kill Switch 2
+- xCon
+- AppSync Unified
+- AppCake
+- clutch
+- Python
+- IPA Installer Console
+- Cycript
+- Class Dump Z
+- dumpdecrypted
+- deveroper-cmds
+- wget, cURL
+- iFile
+- f.lux
+- BigBoss Recommended Tools (big one lots of crap; not really effective)
+- Darwin CC Tools (`otool`)
+
+Useful Apps:
+
+- Scany
+- WiFi Map Pro
+- Fing
