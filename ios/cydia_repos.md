@@ -29,6 +29,7 @@ http://www.pixelomer.com/repo (Saleo)
 
 Cydia Utils:
 
+- Frida for A12+ devices
 - SSL Kill Switch 2
 - xCon
 - AppSync Unified
