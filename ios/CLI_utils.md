@@ -2,9 +2,13 @@
 
 #### 0. iOS app folder structure
 
-Installed IPA: `/var/containers/Bundle/Application/*/MyApp.app/` (binaries are here as well)
+Installed IPA (binaries are here as well):
+- `/var/containers/Bundle/Application/*/MyApp.app/`
+- `/private/var/containers/Bundle/Application/*/MyApp.app/`
 
-Runtime app files: `/var/mobile/Containers/Data/Application/*/Documents/*`
+Runtime app files:
+- `/var/mobile/Containers/Data/Application/*/Documents/*`
+- `/private/var/mobile/Containers/Data/Application/*/Documents/*`
 
 Sahred app files: `/var/mobile/Containers/Shared/AppGroup/`
 
