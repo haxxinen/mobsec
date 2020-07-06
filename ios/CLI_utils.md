@@ -84,3 +84,38 @@ iPhone:/tmp mobile$ open com.apple.mobilesafari
 ```
 Note: Open for iOS 11 in Cydia
 
+#### 7. Installed apps
+```
+iPhone:/tmp mobile$ ll ~/Containers/Bundle/Application/*                     # path to installed apps
+iPhone:/tmp mobile$ ll ~/Containers/Bundle/Application/* | grep .app
+```
+
+#### 8. Safari data
+```
+iPhone:/tmp mobile$ ~/Containers/Data/Application/*/Library/Safari/Thumbnails/        # screenshots of opened tabs
+iPhone:/tmp mobile$ ~/Containers/Data/Application/*/Library/Safari/SuspendState.plist # links of opened tabs
+```
+
+#### 9. Find sqlites
+```
+iPhone:/tmp mobile$ sudo find / -name *.sqlite
+```
+
+#### 10. Collect sqlites
+```bash
+#!/bin/bash
+
+rm -r dbs dbs.zip
+mkdir dbs
+
+declare -a rows
+while IFS= read -r -d '' n; do
+  cp "$n" dbs
+  #rows+=( "$n" )
+done < <(sudo find Containers -name *.sqlite -print0)
+#done < <(sudo find / -name *.sqlite -print0)
+
+zip -r9 dbs.zip dbs && rm -r dbs
+
+#printf '%q\n' "${rows[@]}"
+```
