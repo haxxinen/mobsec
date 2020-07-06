@@ -3,7 +3,9 @@
 #### 0. iOS app folder structure
 
 Installed IPA: `/var/containers/Bundle/Application/*/MyApp.app/` (binaries are here as well)
+
 Runtime app files: `/var/mobile/Containers/Data/Application/*/Documents/*`
+
 Sahred app files: `/var/mobile/Containers/Shared/AppGroup/`
 
 #### 1. Extract binary from `.deb` packege
