@@ -1,6 +1,6 @@
 ## CLI utils for iOS (requires JB)
 
-#### 0. iOS app folder structure
+#### 0. Basics
 
 Installed IPA (binaries are here as well):
 - `/var/containers/Bundle/Application/*/MyApp.app/`
@@ -11,6 +11,13 @@ Runtime app files:
 - `/private/var/mobile/Containers/Data/Application/*/Documents/*`
 
 Sahred app files: `/var/mobile/Containers/Shared/AppGroup/`
+
+After installing `openssh` via Cydia, log in as `root:alpine` and change the `root/mobile` Unix password:
+
+```
+# passwd mobile
+# passwd root
+```
 
 #### 1. Extract binary from `.deb` packege
 ```
