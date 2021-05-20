@@ -17,7 +17,7 @@ Note: `192.168.106.1` is where Burp is running
 #### 1.3. Check if proxy is set
 ```
 # adb shell settings get global http_proxy
-# adb shell settings put global https_proxy 
+# adb shell settings get global https_proxy 
 ```
 
 #### 1.4. Delete proxy on device
