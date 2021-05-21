@@ -3,14 +3,12 @@
 #### 0. Basics
 
 Installed IPA (binaries are here as well):
-- `/var/containers/Bundle/Application/*/MyApp.app/`
 - `/private/var/containers/Bundle/Application/*/MyApp.app/`
 
 Runtime app files:
-- `/var/mobile/Containers/Data/Application/*/Documents/*`
 - `/private/var/mobile/Containers/Data/Application/*/Documents/*`
 
-Sahred app files: `/var/mobile/Containers/Shared/AppGroup/`
+Shared app files: `/var/mobile/Containers/Shared/AppGroup/`
 
 After installing `openssh` via Cydia, log in as `root:alpine` and change the `root/mobile` Unix password:
 
