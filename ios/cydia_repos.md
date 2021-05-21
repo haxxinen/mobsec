@@ -8,11 +8,10 @@ http://apt.modmyi.com
 http://repo.hackyouriphone.org
 http://repo666.ultrasn0w.com
 http://cydia.zodttd.com/repo/cydia
-http://build.frida.re
+https://build.frida.re
 https://cydia.iphonecake.com
 https://coolstar.org/publicrepo
 https://apt.bingner.com
-https://build.frida.re
 https://repo.chariz.com
 https://repo.dynastic.co
 https://repo.packix.com
@@ -29,6 +28,7 @@ http://www.pixelomer.com/repo (Saleo)
 
 Cydia utils:
 
+- Network Commands
 - Frida for A12+ devices
 - SSL Kill Switch 2
 - xCon
