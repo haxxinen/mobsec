@@ -124,3 +124,18 @@ root@debian:~# sshuttle -e 'ssh' -r root@172.17.0.2 192.168.7.0/24
 # adb connect 192.168.7.188
 # ssh root@172.17.0.2 # or ssh into the container from localhost
 ```
+
+#### 6. App management
+
+```
+# adb install /tmp/demo_app.apk
+# adb shell pm list packages
+# adb shell pm uninstall -k com.demo.app
+```
+
+#### 7. Logcat on specific app
+```
+# app='com.demo.app'
+# pid=`adb shell ps | grep "$app$" | awk '{print $2}'`
+# adb logcat | grep $pid
+```
