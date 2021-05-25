@@ -85,7 +85,7 @@ Setup for NAT network only. Given a NAT environment where a Debian VM machine ru
 (1) Host OS (MacOS/Windows) -> (2) VMWare (Debian) -> (3) WiFi AP (Docker) -> (4) Android Device
 ```
 
-#### 5.0. Docker AP container + SSH access
+#### 5.1. Docker AP container + SSH access
 
 Docker AP: `github.com/fgg89/docker-ap`
 ```
