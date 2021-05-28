@@ -5,8 +5,8 @@
 Installed IPA (binaries are here as well):
 - `/private/var/containers/Bundle/Application/*/MyApp.app/`
 
-Runtime app files:
-- `/private/var/mobile/Containers/Data/Application/*/Documents/*`
+Runtime app container:
+- `find /private/var/mobile/Containers/Data/Application -iname '*oddset*' | grep -i splashboard`
 
 Shared app files: `/var/mobile/Containers/Shared/AppGroup/`
 
