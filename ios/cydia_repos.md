@@ -28,22 +28,19 @@ http://www.pixelomer.com/repo (Saleo)
 
 Cydia utils:
 
-- Network Commands
+- Network Commands (arp, ifconfig, netstat, route, traceroute)
 - Frida for A12+ devices
-- SSL Kill Switch 2
-- xCon
-- AppSync Unified
-- AppCake
-- clutch
+- SSL Kill Switch 2 (https://github.com/nabla-c0d3/ssl-kill-switch2)
+- AppSync Unified (install unsigned iOS apps)
+- AppCake 7 Installer
+- CrackerXI+ (dump decrypted iOS IPA)
 - Python
-- IPA Installer Console
 - Cycript
-- Class Dump Z
-- dumpdecrypted
-- deveroper-cmds
+- Class Dump Z (dump objective-C headers)
+- deveroper-cmds (hexdump)
 - wget, cURL
-- iFile
-- f.lux
+- Filza (file manager)
+- NewTerm 2 (terminal app)
 - BigBoss Recommended Tools (big one lots of crap; not really effective)
 - Darwin CC Tools (`otool`)
 
@@ -52,5 +49,3 @@ Useful apps:
 - Scany
 - WiFi Map Pro
 - Fing
-
-Legacy tools: Snoop-It / iNalyzer / Introspy
