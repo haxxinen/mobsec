@@ -135,3 +135,11 @@ zip -r9 dbs.zip dbs && rm -r dbs
 ```
 # security find-identity -v -p codesigning
 ```
+
+#### 12. View app runtime logs
+```
+$ brew install libimobiledevice
+$ idevice_id --list
+$ idevicesyslog -u <UUID> | grep -i AppName
+$ idevicesyslog | grep -i AppName
+```
