@@ -20,11 +20,9 @@ Note: `192.168.106.1` is where Burp is running
 # adb shell settings get global https_proxy 
 ```
 
-#### 1.4. Delete proxy on device
+#### 1.4. Restore proxy settings
 ```
-# adb shell settings delete global http_proxy
-# adb shell settings delete global global_http_proxy_host
-# adb shell settings delete global global_http_proxy_port
+# adb shell settings put global http_proxy :0
 ```
 
 ### 2. Change DNS
