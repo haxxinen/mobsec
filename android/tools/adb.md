@@ -129,6 +129,7 @@ root@debian:~# sshuttle -e 'ssh' -r root@172.17.0.2 192.168.7.0/24
 # adb install /tmp/demo_app.apk
 # adb shell pm list packages
 # adb shell pm uninstall -k com.demo.app
+# adb shell dumpsys package com.demo.app | grep versionName
 ```
 
 #### 7. Logcat on specific app
