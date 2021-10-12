@@ -75,7 +75,15 @@ Example 2 (fill in login form and submit):
 # adb shell input text $user; adb shell input keyevent 61; adb shell input text $pwd; adb shell input keyevent 66
 ```
 
-#### 5. ADB over WiFi
+#### 5. ADB over WiFi (quick)
+
+```
+# adb devices
+# adb tcpip 5555
+# adb connect <device_IP>
+```
+
+#### 6. ADB over WiFi (complex)
 
 Setup for NAT network only. Given a NAT environment where a Debian VM machine runs an WiFi AP via Docker container, obtain network access to the Android device connected to the AP from the underlying host OS.
 
@@ -83,7 +91,7 @@ Setup for NAT network only. Given a NAT environment where a Debian VM machine ru
 (1) Host OS (MacOS/Windows) -> (2) VMWare (Debian) -> (3) WiFi AP (Docker) -> (4) Android Device
 ```
 
-#### 5.1. Docker AP container + SSH access
+#### 6.1. Docker AP container + SSH access
 
 Docker AP: `github.com/fgg89/docker-ap`
 ```
@@ -97,33 +105,33 @@ Docker AP: `github.com/fgg89/docker-ap`
 # ssh root@$ip
 ```
 
-#### 5.1. ADB access
+#### 6.1. ADB access
 - `172.17.0.2` Docker container default IP (eth0)
 - `192.168.7.188` Docker container WiFi IP (wlan0)
 - `192.168.209.182` Debian IP
 
-#### 5.2. Tunnel from Debian VM to Docker container - link WiFi interface of the container (wlan0)
+#### 6.2. Tunnel from Debian VM to Docker container - link WiFi interface of the container (wlan0)
 ```
 root@debian:~# sshuttle -e 'ssh' -r root@172.17.0.2 192.168.7.0/24
 ```
 
-#### 5.3. Tunnel from host OS to Debian VM - link the default gateway-interface of the container (eth0)
+#### 6.3. Tunnel from host OS to Debian VM - link the default gateway-interface of the container (eth0)
 ```
 # sshuttle -e 'ssh' -r root@192.168.209.182 172.17.0.0/24
 ```
 
-#### 5.4. Tunnel from host OS to Docker container - link WiFi interface of the container (wlan0)
+#### 6.4. Tunnel from host OS to Docker container - link WiFi interface of the container (wlan0)
 ```
 # sshuttle -e 'ssh' -r root@172.17.0.2 192.168.7.0/24
 ```
 
-#### 5.5. ADB connect on the WiFi from host OS
+#### 6.5. ADB connect on the WiFi from host OS
 ```
 # adb connect 192.168.7.188
 # ssh root@172.17.0.2 # or ssh into the container from localhost
 ```
 
-#### 6. App management
+#### 7. App management
 
 ```
 # adb install /tmp/demo_app.apk
@@ -132,7 +140,7 @@ root@debian:~# sshuttle -e 'ssh' -r root@172.17.0.2 192.168.7.0/24
 # adb shell dumpsys package com.demo.app | grep versionName
 ```
 
-#### 7. Logcat on specific app
+#### 8. Logcat on specific app
 ```
 # app='com.demo.app'
 # pid=`adb shell ps | grep "$app$" | awk '{print $2}'`
