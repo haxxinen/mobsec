@@ -146,3 +146,8 @@ root@debian:~# sshuttle -e 'ssh' -r root@172.17.0.2 192.168.7.0/24
 # pid=`adb shell ps | grep "$app$" | awk '{print $2}'`
 # adb logcat | grep $pid
 ```
+
+#### 9. Boot into recovery mode
+```
+# adb reboot recovery
+```
